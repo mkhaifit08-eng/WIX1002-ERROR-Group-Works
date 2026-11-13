@@ -97,6 +97,8 @@ public class Q6 {
             }
         }
 
+        if(simplifiedCommands.equals("")) simplifiedCommands="EMPTY";
+
         System.out.println("Meetings: " + meetings);
         System.out.println("Origin Returns: " + originReturns);
         System.out.println("Maximum Gap: " + maxGap);
