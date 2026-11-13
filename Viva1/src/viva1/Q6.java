@@ -20,6 +20,7 @@ public class Q6 {
 
         System.out.print("Enter robot commands: ");
         String commands = sc.next();
+        String simplifiedCommands = new String();
 
         for(int i=0; i<commands.length();i++){
             char command = commands.charAt(i);
@@ -81,7 +82,10 @@ public class Q6 {
         System.out.println("Meetings: " + meetings);
         System.out.println("Origin Returns: " + originReturns);
         System.out.println("Maximum Gap: " + maxGap);
-
+        char[] D = {'N', 'E', 'S', 'W'};
+        System.out.printf("Robot P Final: (%d,%d) facing %s\n", xP, yP, D[dirP]);
+        System.out.printf("Robot Q Final: (%d,%d) facing %s\n", xQ, yQ, D[dirQ]);
+        System.out.println("Simplified Commands: " + simplifiedCommands);
         
         sc.close();
     }
