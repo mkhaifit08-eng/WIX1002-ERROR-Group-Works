@@ -97,7 +97,9 @@ public class Q3 {
             }
         
             
-            
+           if(inter) {
+               zone = 4 ;
+        } else {
             if(area >=50 && area <=60){
                 zone = 1 ;
             } else if (area >= 1 && area <= 49 || area >=61 && area <= 86){
@@ -108,9 +110,8 @@ public class Q3 {
                 System.out.println("ERROR : INVALID POSTCODE.PARCEL SKIPPED");
                 continue;
             }
-            if (inter) {
-                zone = 4 ;
-            }
+    }
+            
             
            
             float kgw = 0 ;
