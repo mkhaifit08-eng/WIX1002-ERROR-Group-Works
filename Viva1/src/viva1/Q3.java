@@ -120,7 +120,7 @@ public class Q3 {
              String weig = in.nextLine();
              
              
-             if (weig.matches("[A-Z]+")){
+             if (!weig.matches("[0-9]+")){
                  System.out.println("ERROR : WEIGHT MUST BE INTEGER");
              } else {
                  int weig2 = Integer.parseInt(weig);
