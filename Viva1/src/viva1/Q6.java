@@ -20,62 +20,80 @@ public class Q6 {
 
         System.out.print("Enter robot commands: ");
         String commands = sc.next();
-        String simplifiedCommands = new String();
+        String simplifiedCommands = commands;
 
         for(int i=0; i<commands.length();i++){
             char command = commands.charAt(i);
             boolean isMove = false;
 
-            if(command == 'F' || command == 'B' || command == 'L' || command == 'R' || command == 'f' || command == 'b' || command == 'l' || command == 'r' ){
-                if (command == 'F') {
+            switch (command) {
+                case 'F':
                     xP += dx[dirP];
                     yP += dy[dirP];
                     isMove = true;
-                } else if (command == 'B') {
+                    break;
+                case 'B':
                     xP -= dx[dirP];
                     yP -= dy[dirP];
                     isMove = true;
-                } else if (command == 'R'){
-                    dirP = (dirP+1) % 4;
-                } else if (command == 'L'){
-                    dirP = (dirP +3) % 4;
-                } else if (command == 'f') {
+                    break;
+                case 'R':
+                    dirP = (dirP + 1) % 4;
+                    break;
+                case 'L':
+                    dirP = (dirP + 3) % 4;
+                    break;
+                case 'f':
                     xQ += dx[dirQ];
                     yQ += dy[dirQ];
                     isMove = true;
-                } else if (command == 'b') {
+                    break;
+                case 'b':
                     xQ -= dx[dirQ];
                     yQ -= dy[dirQ];
                     isMove = true;
-                } else if (command == 'r'){
-                    dirQ = (dirQ+1) % 4;
-                } else {
-                    dirQ = (dirQ +3) % 4;
-                }
-            
-                if(isMove){
-                    if((xP == xQ && yP == yQ)) meetings++;
-                    
-                    if (command == 'F' || command == 'B') {
-                        if (xP == 0 && yP == 0) {
-                            originReturns++;
-                        }
-                    } else if (command == 'f' || command == 'b') {
-                        if (xQ == 0 && yQ == 0) {
-                            originReturns++;
-                        }
+                    break;
+                case 'r':
+                    dirQ = (dirQ + 1) % 4;
+                    break;
+                case 'l':
+                    dirQ = (dirQ + 3) % 4;
+                    break;
+                default:
+                    System.out.println("Invalid Command String");
+                    return;
+            }
+
+            if (isMove) {
+                if (xP == xQ && yP == yQ) meetings++;
+
+                if (command == 'F' || command == 'B') {
+                    if (xP == 0 && yP == 0) {
+                        originReturns++;
                     }
-
-                    int gap = Math.abs(xP - xQ) + Math.abs(yP - yQ);
-
-                    if (gap > maxGap) {
-                        maxGap = gap;
+                } else if (command == 'f' || command == 'b') {
+                    if (xQ == 0 && yQ == 0) {
+                        originReturns++;
                     }
                 }
 
-            } else {
-                System.out.println("Invalid Command String");
-                return;
+                int gap = Math.abs(xP - xQ) + Math.abs(yP - yQ);
+
+                if (gap > maxGap) {
+                    maxGap = gap;
+                }
+            }
+        }
+
+        
+        String[] removeCases = {"fb", "bf", "rl","lr","rrrr","llll"};
+        String before = ""; 
+
+        while(!before.equals(simplifiedCommands)){
+            before=simplifiedCommands;
+            for(String ccase : removeCases){
+                simplifiedCommands = simplifiedCommands.replace(ccase,"");
+                simplifiedCommands = simplifiedCommands.replace(ccase.toUpperCase(),"");
             }
         }
 
