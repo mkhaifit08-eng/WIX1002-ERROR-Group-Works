@@ -2,7 +2,7 @@ package viva_1;
 
 import java.util.*;
 
-public class V1Q4 {
+public class Q4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
