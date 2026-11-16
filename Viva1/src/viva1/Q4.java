@@ -1,4 +1,4 @@
-package viva_1;
+package viva1;
 
 import java.util.*;
 

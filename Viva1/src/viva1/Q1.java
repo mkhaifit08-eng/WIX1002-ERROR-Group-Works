@@ -3,12 +3,12 @@ package viva1;
 import java.util.Scanner;
 public class Q1 {
     public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter Original Phrase: ");
         String phrase= sc.nextLine(); 
         String characters ="!@#$%", vowel="AEIOU";
         String password = new String();
-        int key=13, sum=0;
+        int key, sum=0;
 
         for(int i=0;i<phrase.length();i++){
 
@@ -16,8 +16,8 @@ public class Q1 {
                 sum += phrase.charAt(i)-'0';
             }
         }
-        key = sum%26;
-        if(key ==0 ) key=13;
+        key = sum % 26;
+        if(key == 0) key=13;
 
         for(int i=0;i<phrase.length();i++){
             String temp = new String();

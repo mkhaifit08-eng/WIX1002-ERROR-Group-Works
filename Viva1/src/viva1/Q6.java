@@ -10,6 +10,7 @@ public class Q6 {
         // Heading: 0 = North, 1 = East, 2 = South, 3 = West
         int dirP = 0;
         int dirQ = 0;
+        char[] D = {'N', 'E', 'S', 'W'};
 
         int meetings = 0;
         int originReturns = 0;
@@ -102,7 +103,6 @@ public class Q6 {
         System.out.println("Meetings: " + meetings);
         System.out.println("Origin Returns: " + originReturns);
         System.out.println("Maximum Gap: " + maxGap);
-        char[] D = {'N', 'E', 'S', 'W'};
         System.out.printf("Robot P Final: (%d,%d) facing %s\n", xP, yP, D[dirP]);
         System.out.printf("Robot Q Final: (%d,%d) facing %s\n", xQ, yQ, D[dirQ]);
         System.out.println("Simplified Commands: " + simplifiedCommands);
