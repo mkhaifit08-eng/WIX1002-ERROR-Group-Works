@@ -15,23 +15,43 @@ public class Q2 {
     public static void main(String[] args) {
         // Input
         Scanner in = new Scanner(System.in);
-        double B= 0;
+        double B = 0;
         
         do {
             System.out.print("Enter Outstanding Balance (RM500-RM50,000): ");
             B = in.nextDouble();
             
-            // Check input validity
             if (B>=500 && B<=50000) break;
             else System.out.println("Invalid value");
         } while (true);
         
-        System.out.print("Enter annual interest rate in %: ");
-        double R = in.nextDouble();
-        double r = R/(100*12);
+        double R = 0;
+        double r = 0;
         
-        System.out.print("Enter monthly payment: ");
-        double P = in.nextDouble();
+        do {
+            System.out.print("Enter annual interest rate in %: ");
+            R = in.nextDouble();
+            
+            if (R>0) {
+                r = R/(100*12);
+                break;
+            } else System.out.println("Invalid value, enter positive numbers");
+        } while (true);
+        
+        double P = 0;
+        do {
+            System.out.print("Enter monthly payment: ");
+            P = in.nextDouble();
+            
+            switch((int) P) {
+                case 0:
+                    break;
+                    
+            }
+            if (P > 0) break;
+            else if (P == 0) System.out.println("Error: Payment must be more than 0");
+            else if (P < 0) System.out.println("Error: Payment must be a positive integer");
+        } while (true);
         
         System.out.print("Would you like a payment holiday? (Y/N): ");
         char H = Character.toUpperCase(in.next().charAt(0));
@@ -39,12 +59,10 @@ public class Q2 {
         
         switch (H) {
             case 'Y': 
-                // Loop for valid month
                 do {
                     System.out.print("Enter your holiday month (1-36): ");
                     M = in.nextInt();
                     
-                    // Check input validity
                     if (M>=1 && M<=36) break;
                     else System.out.println("Invalid month");
                 } while (true);
