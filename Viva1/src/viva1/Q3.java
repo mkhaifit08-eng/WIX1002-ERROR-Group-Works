@@ -40,7 +40,7 @@ public class Q3 {
             if( pc.length() > 2 ){
                 
             
-            if ( pc.equalsIgnoreCase(ex.replace("-","").replace(" " , "").trim())){
+            if ( pc.equalsIgnoreCase(ex)){
                 break ;
             }
             
